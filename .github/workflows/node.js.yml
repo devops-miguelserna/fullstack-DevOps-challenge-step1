@@ -22,7 +22,8 @@ jobs:
     - name: Prettier
       run: |
         npm install --save-dev --save-exact prettier
-        npm run prettier --write 
+        npx prettier --write .
+      #npm run prettier --write 
     - name: Test
       run: CI=true npm run test
     - name: Build
