@@ -19,14 +19,10 @@ jobs:
       run: npm install
     - name: ESLint
       run: npm run lint
-    # - name: Prettier
-    #   run: npm run prettier
-    - name: Prettify code
-      uses: creyD/prettier_action@v4.3
-      with:
-        # This part is also where you can pass other options, for example:
-        prettier_options: --write **/*.{js,md}
-        github_token: ${{ secrets.MPGT }}
+    - name: Prettier
+      run: |
+        npm install --save-dev --save-exact prettier
+        npm run prettier
     - name: Test
       run: CI=true npm run test
     - name: Build
